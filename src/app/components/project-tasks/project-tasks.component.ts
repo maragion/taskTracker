@@ -5,6 +5,9 @@ import {IProject} from "../../interfaces/projects";
 import {ProjectDataService} from "../../services/project-data.service";
 import {Subscription} from "rxjs";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {MatFabButton} from "@angular/material/button";
+import {MatIcon} from "@angular/material/icon";
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-project-tasks',
@@ -16,7 +19,10 @@ import {MatProgressSpinner} from "@angular/material/progress-spinner";
     MatCardTitle,
     NgClass,
     DatePipe,
-    MatProgressSpinner
+    MatProgressSpinner,
+    MatFabButton,
+    MatIcon,
+    MatTooltip
   ],
   templateUrl: './project-tasks.component.html',
   styleUrl: './project-tasks.component.scss'

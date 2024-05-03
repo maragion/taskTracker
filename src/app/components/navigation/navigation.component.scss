@@ -1,7 +1,6 @@
 mat-toolbar {
   padding-top: 20px;
   padding-bottom: 20px;
-  //background-color: #80bbab;
 
   span {
     color: #ffffff;
@@ -11,7 +10,6 @@ mat-toolbar {
 .example-container {
   width: 100%;
   border: 1px solid #a29f9f;
-  position: relative;
   height: 100%;
 
   .content {
@@ -20,11 +18,5 @@ mat-toolbar {
 
   .sidebar {
     width: 200px;
-  }
-
-  .add-task {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
   }
 }
