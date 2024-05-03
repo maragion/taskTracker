@@ -1,0 +1,5 @@
+<div class="projects-wrapper">
+  @for (project of projects; track project; let idx = $index) {
+    <a [routerLink]="project.link">{{project.title}}</a>
+  }
+</div>
