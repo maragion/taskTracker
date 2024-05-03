@@ -2,6 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NavigationComponent} from "./components/navigation/navigation.component";
 import {LocalStorageService} from "./services/localStorage.service";
+import {ProjectDataService} from "./services/project-data.service";
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,14 @@ import {LocalStorageService} from "./services/localStorage.service";
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'taskTracker';
-  localStorageService = inject(LocalStorageService);
+  public title = 'taskTracker';
+  private _localStorageService = inject(LocalStorageService);
+  private _dataService = inject(ProjectDataService);
 
   ngOnInit() {
 
-    this.localStorageService.writeToLocalStorage();
+    this._localStorageService.writeToLocalStorage();
+    this._dataService.getProjectsData();
 
   }
 }

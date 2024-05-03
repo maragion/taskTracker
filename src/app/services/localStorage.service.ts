@@ -16,15 +16,4 @@ export class LocalStorageService {
     } else return;
 
   }
-
-  public getProjects() {
-    const data = localStorage.getItem(this.key);
-
-    if (data) {
-      return JSON.parse(data);
-    } else return [];
-  }
-
-  constructor() {
-  }
 }
