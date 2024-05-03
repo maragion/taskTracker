@@ -5,9 +5,7 @@ import {IProject} from "../../interfaces/projects";
 import {ProjectDataService} from "../../services/project-data.service";
 import {Subscription} from "rxjs";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
-import {MatFabButton} from "@angular/material/button";
-import {MatIcon} from "@angular/material/icon";
-import {MatTooltip} from "@angular/material/tooltip";
+import {NewTaskComponent} from "../new-task/new-task.component";
 
 @Component({
   selector: 'app-project-tasks',
@@ -20,9 +18,7 @@ import {MatTooltip} from "@angular/material/tooltip";
     NgClass,
     DatePipe,
     MatProgressSpinner,
-    MatFabButton,
-    MatIcon,
-    MatTooltip
+    NewTaskComponent
   ],
   templateUrl: './project-tasks.component.html',
   styleUrl: './project-tasks.component.scss'

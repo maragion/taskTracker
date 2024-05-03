@@ -4,6 +4,7 @@
 
   .todo, .in-progress, .done{
     flex: 1;
+    margin-top: 10px;
   }
 
   .priority {
@@ -27,10 +28,4 @@
     }
 
   }
-}
-
-.add-task {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
 }

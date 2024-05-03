@@ -1,0 +1,58 @@
+<div class="form-wrapper">
+
+  <h2>Add new task</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Task title</mat-label>
+      <input matInput formControlName="title" type="text">
+    </mat-form-field>
+
+    <div class="inputs">
+      <mat-form-field class="example-full-width">
+        <mat-label>Choose a date</mat-label>
+        <input matInput formControlName="date" [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="priority">
+          @for (option of priorityOptions; track $index) {
+            <mat-option [value]="option.value">{{ option.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="inputs">
+      <mat-form-field>
+        <mat-label>Assignee</mat-label>
+        <mat-select formControlName="assignee">
+          @for (employee of employees; track employee) {
+            <mat-option [value]="employee">{{ employee }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          @for (status of statusOptions; track status) {
+            <mat-option [value]="status.value">{{ status.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Task description</mat-label>
+      <textarea matInput formControlName="description" type="text"></textarea>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit">Submit</button>
+  </form>
+</div>
+
+

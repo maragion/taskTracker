@@ -1,5 +1,5 @@
 <div class="projects-wrapper">
   @for (project of projects; track project; let idx = $index) {
-    <a (click)="setCurrentProjectId(idx)">{{project.title}}</a>
+    <a (click)="setCurrentProjectId(idx)" [ngClass]="{'active': idx === currentProjectId}">{{project.title}}</a>
   }
 </div>

@@ -1,0 +1,26 @@
+
+.add-task {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.form-wrapper {
+  padding: 20px;
+  width: 450px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputs {
+    display: flex;
+    gap: 10px;
+
+    & > * {
+      flex: 1;
+    }
+  }
+
+}
