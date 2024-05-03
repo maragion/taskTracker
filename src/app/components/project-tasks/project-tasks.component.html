@@ -1,77 +1,82 @@
-<div class="tasks-wrapper">
+@if (currentProject) {
+  <h1>{{ currentProject.title }}</h1>
+  <div class="tasks-wrapper">
 
-  <div class="todo">
+    <div class="todo">
 
-    <h2>ToDo</h2>
+      <h2>ToDo</h2>
 
-    @for (task of currentProject.tasks; track task) {
+      @for (task of currentProject.tasks; track task) {
 
-      @if(task.status === 'todo') {
-        <mat-card [ngClass]="task.status">
-          <mat-card-header>
-            <mat-card-title>{{task.title}}</mat-card-title>
-          </mat-card-header>
+        @if (task.status === 'todo') {
+          <mat-card [ngClass]="task.status">
+            <mat-card-header>
+              <mat-card-title>{{ task.title }}</mat-card-title>
+            </mat-card-header>
 
-          <mat-card-content>
-            <div class="task-info">
-              <p>Priority: <span [ngClass]="['priority', task.priority]">{{task.priority}}</span></p>
-              <p>Deadline: {{task.date * 1000 | date}}</p>
-              <p>Assignee: {{task.assignee}}</p>
-            </div>
-            <p>{{task.description}}</p>
-          </mat-card-content>
-        </mat-card>
+            <mat-card-content>
+              <div class="task-info">
+                <p>Priority: <span [ngClass]="['priority', task.priority]">{{ task.priority }}</span></p>
+                <p>Deadline: {{ task.date * 1000 | date }}</p>
+                <p>Assignee: {{ task.assignee }}</p>
+              </div>
+              <p>{{ task.description }}</p>
+            </mat-card-content>
+          </mat-card>
+        }
       }
-    }
-  </div>
-  <div class="in-progress">
+    </div>
 
-    <h2>In Progress</h2>
+    <div class="in-progress">
 
-    @for (task of currentProject.tasks; track task) {
+      <h2>In Progress</h2>
 
-      @if(task.status === 'in-progress') {
-        <mat-card [ngClass]="task.status">
-          <mat-card-header>
-            <mat-card-title>{{task.title}}</mat-card-title>
-          </mat-card-header>
+      @for (task of currentProject.tasks; track task) {
 
-          <mat-card-content>
-            <div class="task-info">
-              <p>Priority: <span [ngClass]="['priority', task.priority]">{{task.priority}}</span></p>
-              <p>Deadline: {{task.date * 1000 | date}}</p>
-              <p>Assignee: {{task.assignee}}</p>
-            </div>
-            <p>{{task.description}}</p>
-          </mat-card-content>
-        </mat-card>
+        @if (task.status === 'in-progress') {
+          <mat-card [ngClass]="task.status">
+            <mat-card-header>
+              <mat-card-title>{{ task.title }}</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="task-info">
+                <p>Priority: <span [ngClass]="['priority', task.priority]">{{ task.priority }}</span></p>
+                <p>Deadline: {{ task.date * 1000 | date }}</p>
+                <p>Assignee: {{ task.assignee }}</p>
+              </div>
+              <p>{{ task.description }}</p>
+            </mat-card-content>
+          </mat-card>
+        }
       }
-    }
-  </div>
-  <div class="done">
+    </div>
 
-    <h2>Done</h2>
+    <div class="done">
 
-    @for (task of currentProject.tasks; track task) {
+      <h2>Done</h2>
 
-      @if(task.status === 'done') {
-        <mat-card [ngClass]="task.status">
-          <mat-card-header>
-            <mat-card-title>{{task.title}}</mat-card-title>
-          </mat-card-header>
+      @for (task of currentProject.tasks; track task) {
 
-          <mat-card-content>
-            <div class="task-info">
-              <p>Priority: <span [ngClass]="['priority', task.priority]">{{task.priority}}</span></p>
-              <p>Deadline: {{task.date * 1000 | date}}</p>
-              <p>Assignee: {{task.assignee}}</p>
-            </div>
-            <p>{{task.description}}</p>
-          </mat-card-content>
-        </mat-card>
+        @if (task.status === 'done') {
+          <mat-card [ngClass]="task.status">
+            <mat-card-header>
+              <mat-card-title>{{ task.title }}</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="task-info">
+                <p>Priority: <span [ngClass]="['priority', task.priority]">{{ task.priority }}</span></p>
+                <p>Deadline: {{ task.date * 1000 | date }}</p>
+                <p>Assignee: {{ task.assignee }}</p>
+              </div>
+              <p>{{ task.description }}</p>
+            </mat-card-content>
+          </mat-card>
+        }
       }
-    }
+    </div>
   </div>
-
-
-</div>
+} @else {
+  <mat-spinner></mat-spinner>
+}

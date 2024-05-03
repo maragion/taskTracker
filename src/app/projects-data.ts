@@ -1,4 +1,4 @@
-export const PROJECTSDATA: IProject[] = [
+export const PROJECTSDATA = [
   {
     title: 'Project 1',
     link: 'project1',
@@ -67,18 +67,4 @@ export const PROJECTSDATA: IProject[] = [
   },
 ];
 
-interface ITask {
-  title: string;
-  description: string;
-  assignee: string;
-  priority: string;
-  date: number;
-  status: string;
-}
-
-interface IProject {
-  title: string;
-  link: string;
-  tasks: ITask[];
-}
 
