@@ -1,6 +1,8 @@
 .tasks-wrapper {
   display: flex;
   gap: 20px;
+  overflow: auto;
+  padding-bottom: 100px;
 
   .todo, .in-progress, .done{
     flex: 1;

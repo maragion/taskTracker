@@ -1,12 +1,12 @@
 import {Injectable, signal} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
-import { IProject} from "../interfaces/projects";
+import {IProject} from "../interfaces/projects";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectDataService {
-  projects:IProject[] = [];
+  projects: IProject[] = [];
   data: BehaviorSubject<IProject[]>;
   $projectsData: Observable<IProject[]>;
   currentProjectId: number = 0;
@@ -18,7 +18,7 @@ export class ProjectDataService {
     this.currentProject = new BehaviorSubject(this.projects[this.currentProjectId]);
     this.data = new BehaviorSubject(this.projects);
     this.$projectsData = this.data as Observable<IProject[]>;
-    this.$currentProjectData =  this.currentProject as Observable<IProject>;
+    this.$currentProjectData = this.currentProject as Observable<IProject>;
   }
 
   public setCurrentProject(projectId: number) {
@@ -37,6 +37,10 @@ export class ProjectDataService {
         this.isLoading.set(false);
       }, 1000);
     }
+  }
+
+  public addTask(data: any) {
+    this.projects[this.currentProjectId].tasks.push(data);
   }
 
 }

@@ -8,7 +8,7 @@ export const PROJECTSDATA = [
         description: 'Some text',
         status: 'done',
         assignee: 'Ivan Ivanov',
-        date: 1714733652,
+        date: 1714842000000,
         priority: 'low',
       },
       {
@@ -16,7 +16,7 @@ export const PROJECTSDATA = [
         description: 'Some text',
         status: 'todo',
         assignee: 'Ivan Ivanov',
-        date: 1714733652,
+        date: 1714842000000,
         priority: 'low',
       },
       {
@@ -24,7 +24,7 @@ export const PROJECTSDATA = [
         description: 'Some text',
         status: 'in-progress',
         assignee: 'Ivan Ivanov',
-        date: 1714733652,
+        date: 1714842000000,
         priority: 'high',
       },
       {
@@ -32,9 +32,26 @@ export const PROJECTSDATA = [
         description: 'Some text',
         status: 'done',
         assignee: 'Ivan Ivanov',
-        date: 1714733652,
+        date: 1714842000000,
         priority: 'medium',
-      },]
+      },
+      {
+        title: 'Task 1',
+        description: 'Some text',
+        status: 'done',
+        assignee: 'Ivan Ivanov',
+        date: 1714842000000,
+        priority: 'medium',
+      },
+      {
+        title: 'Task 1',
+        description: 'Some text',
+        status: 'done',
+        assignee: 'Ivan Ivanov',
+        date: 1714842000000,
+        priority: 'medium',
+      }
+    ]
   },
   {
     title: 'Project 2',
@@ -45,7 +62,7 @@ export const PROJECTSDATA = [
         description: 'Some text',
         status: 'todo',
         assignee: 'Ivan Ivanov',
-        date: 1714733652,
+        date: 1714842000000,
         priority: 'low',
       },
       {
@@ -53,7 +70,7 @@ export const PROJECTSDATA = [
         description: 'Some text',
         status: 'in-progress',
         assignee: 'Ivan Ivanov',
-        date: 1714733652,
+        date: 1714842000000,
         priority: 'high',
       },
       {
@@ -61,7 +78,7 @@ export const PROJECTSDATA = [
         description: 'Some text',
         status: 'done',
         assignee: 'Ivan Ivanov',
-        date: 1714733652,
+        date: 1714842000000,
         priority: 'medium',
       },
     ]
@@ -74,7 +91,7 @@ export const PROJECTSDATA = [
       description: 'Some text',
       status: 'done',
       assignee: 'Ivan Ivanov',
-      date: 1714733652,
+      date: 1714842000000,
       priority: 'medium',
     }]
   },
@@ -86,7 +103,7 @@ export const PROJECTSDATA = [
       description: 'Some text',
       status: 'done',
       assignee: 'Ivan Ivanov',
-      date: 1714733652,
+      date: 1714842000000,
       priority: 'low',
     }]
   },

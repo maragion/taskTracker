@@ -17,7 +17,7 @@
             <mat-card-content>
               <div class="task-info">
                 <p>Priority: <span [ngClass]="['priority', task.priority]">{{ task.priority }}</span></p>
-                <p>Deadline: {{ task.date * 1000 | date }}</p>
+                <p>Deadline: {{ task.date | date }}</p>
                 <p>Assignee: {{ task.assignee }}</p>
               </div>
               <p>{{ task.description }}</p>
@@ -42,7 +42,7 @@
             <mat-card-content>
               <div class="task-info">
                 <p>Priority: <span [ngClass]="['priority', task.priority]">{{ task.priority }}</span></p>
-                <p>Deadline: {{ task.date * 1000 | date }}</p>
+                <p>Deadline: {{ task.date | date }}</p>
                 <p>Assignee: {{ task.assignee }}</p>
               </div>
               <p>{{ task.description }}</p>
@@ -67,7 +67,7 @@
             <mat-card-content>
               <div class="task-info">
                 <p>Priority: <span [ngClass]="['priority', task.priority]">{{ task.priority }}</span></p>
-                <p>Deadline: {{ task.date * 1000 | date }}</p>
+                <p>Deadline: {{ task.date | date }}</p>
                 <p>Assignee: {{ task.assignee }}</p>
               </div>
               <p>{{ task.description }}</p>

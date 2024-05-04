@@ -8,11 +8,21 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {provideNativeDateAdapter} from "@angular/material/core";
-import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {ProjectDataService} from "../../services/project-data.service";
 
 interface IOptions {
   value: string,
   label: string,
+}
+
+interface IForm {
+  title: string,
+  date: string | number,
+  priority: string,
+  assignee: string,
+  status: string,
+  description: string,
 }
 
 @Component({
@@ -46,7 +56,9 @@ export class NewTaskComponent {
 
 export class NewTaskDialogComponent {
   private _fb = inject(FormBuilder);
-
+  private _dataService = inject(ProjectDataService);
+  constructor(public dialog: MatDialog) {
+  }
   public employees: string[] = ['Ivan Ivanov', 'John Doe', 'Elena Petrova'];
   public statusOptions: IOptions[] = [
     {
@@ -77,7 +89,7 @@ export class NewTaskDialogComponent {
     },
   ];
 
-  public taskForm = this._fb.group({
+  public taskForm: FormGroup = this._fb.group({
     title: ['', Validators.required],
     date: [''],
     priority: ['low'],
@@ -88,9 +100,16 @@ export class NewTaskDialogComponent {
 
   public onSubmit() {
     if (this.taskForm.valid) {
-      const data = this.taskForm.getRawValue();
-      console.log(data);
+      const data: IForm = this.taskForm.getRawValue();
+      data.date = new Date(data.date).getTime();
+      this._dataService.addTask(data);
+      this.taskForm.reset();
+      this.closeDialog();
     }
+  }
+
+  closeDialog() {
+    this.dialog.closeAll();
   }
 
 }

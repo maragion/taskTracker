@@ -4,7 +4,7 @@ export interface IProject {
   tasks: ITask[];
 }
 
-interface ITask {
+export interface ITask {
   title: string;
   description: string;
   assignee: string;
