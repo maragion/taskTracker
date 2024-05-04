@@ -41,6 +41,7 @@ export class ProjectDataService {
 
   public addTask(data: any) {
     this.projects[this.currentProjectId].tasks.push(data);
+    this.data.next(this.projects);
   }
 
 }
