@@ -1,0 +1,33 @@
+.task-wrapper {
+  display: flex;
+  width: 450px;
+  height: 100%;
+
+  padding: 20px;
+  flex-direction: column;
+
+    & > * {
+      flex: 1;
+    }
+
+  .inputs {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .description {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    font-size: 16px;
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+
+}

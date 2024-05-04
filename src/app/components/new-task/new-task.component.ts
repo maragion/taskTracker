@@ -10,19 +10,11 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {provideNativeDateAdapter} from "@angular/material/core";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ProjectDataService} from "../../services/project-data.service";
+import {ITask} from "../../interfaces/projects";
 
 interface IOptions {
   value: string,
   label: string,
-}
-
-interface IForm {
-  title: string,
-  date: string | number,
-  priority: string,
-  assignee: string,
-  status: string,
-  description: string,
 }
 
 @Component({
@@ -100,7 +92,7 @@ export class NewTaskDialogComponent {
 
   public onSubmit() {
     if (this.taskForm.valid) {
-      const data: IForm = this.taskForm.getRawValue();
+      const data: ITask = this.taskForm.getRawValue();
       data.date = new Date(data.date).getTime();
       this._dataService.addTask(data);
       this.taskForm.reset();

@@ -1,0 +1,40 @@
+<div class="task-wrapper">
+    @if (task) {
+        <div class="task-info">
+          <h2>{{ task.title }}</h2>
+
+          <p>Priority: <span [ngClass]="['priority', task.priority]">{{ task.priority }}</span></p>
+          <p>Deadline: {{ task.date | date }}</p>
+        </div>
+
+        <div class="inputs">
+          <mat-form-field>
+            <mat-label>Assignee</mat-label>
+            <mat-select [(value)]="selectedAssignee">
+              @for (employee of employees; track employee) {
+                <mat-option [value]="employee">{{ employee }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select [(value)]="selectedStatus">
+              @for (status of statusOptions; track status) {
+                <mat-option [value]="status.value">{{ status.label }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      <div class="description">
+        {{ task.description }}
+      </div>
+
+      <div class="buttons-wrapper">
+        <button mat-flat-button color="primary" (click)="updateTask()">Save</button>
+        <button mat-flat-button color="warn" (click)="closeTask()">Close</button>
+      </div>
+    }
+
+</div>

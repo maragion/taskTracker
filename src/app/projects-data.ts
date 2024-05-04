@@ -12,7 +12,7 @@ export const PROJECTSDATA = [
         priority: 'low',
       },
       {
-        title: 'Task 1',
+        title: 'Task 2',
         description: 'Some text',
         status: 'todo',
         assignee: 'Ivan Ivanov',
@@ -20,7 +20,7 @@ export const PROJECTSDATA = [
         priority: 'low',
       },
       {
-        title: 'Task 1',
+        title: 'Task 3',
         description: 'Some text',
         status: 'in-progress',
         assignee: 'Ivan Ivanov',
@@ -28,7 +28,7 @@ export const PROJECTSDATA = [
         priority: 'high',
       },
       {
-        title: 'Task 1',
+        title: 'Task 4',
         description: 'Some text',
         status: 'done',
         assignee: 'Ivan Ivanov',
@@ -36,7 +36,7 @@ export const PROJECTSDATA = [
         priority: 'medium',
       },
       {
-        title: 'Task 1',
+        title: 'Task 5',
         description: 'Some text',
         status: 'done',
         assignee: 'Ivan Ivanov',
@@ -44,7 +44,7 @@ export const PROJECTSDATA = [
         priority: 'medium',
       },
       {
-        title: 'Task 1',
+        title: 'Task 6',
         description: 'Some text',
         status: 'done',
         assignee: 'Ivan Ivanov',

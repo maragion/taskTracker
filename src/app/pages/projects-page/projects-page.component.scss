@@ -1,0 +1,13 @@
+.example-container {
+  width: 100%;
+  border: 1px solid #a29f9f;
+  height: 100%;
+
+  .content {
+    padding: 20px;
+  }
+
+  .sidebar {
+    width: 200px;
+  }
+}

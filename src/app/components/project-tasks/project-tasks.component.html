@@ -6,10 +6,10 @@
 
       <h2>ToDo</h2>
 
-      @for (task of currentProject.tasks; track task) {
+      @for (task of currentProject.tasks; track task; let idx = $index) {
 
         @if (task.status === 'todo') {
-          <mat-card [ngClass]="task.status">
+          <mat-card [ngClass]="task.status" (click)="onClick(idx)">
             <mat-card-header>
               <mat-card-title>{{ task.title }}</mat-card-title>
             </mat-card-header>
@@ -31,10 +31,10 @@
 
       <h2>In Progress</h2>
 
-      @for (task of currentProject.tasks; track task) {
+      @for (task of currentProject.tasks; track task; let idx = $index) {
 
         @if (task.status === 'in-progress') {
-          <mat-card [ngClass]="task.status">
+          <mat-card [ngClass]="task.status" (click)="onClick(idx)">
             <mat-card-header>
               <mat-card-title>{{ task.title }}</mat-card-title>
             </mat-card-header>
@@ -56,10 +56,10 @@
 
       <h2>Done</h2>
 
-      @for (task of currentProject.tasks; track task) {
+      @for (task of currentProject.tasks; track task; let idx = $index) {
 
         @if (task.status === 'done') {
-          <mat-card [ngClass]="task.status">
+          <mat-card [ngClass]="task.status" (click)="onClick(idx)">
             <mat-card-header>
               <mat-card-title>{{ task.title }}</mat-card-title>
             </mat-card-header>

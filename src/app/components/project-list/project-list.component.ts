@@ -22,7 +22,6 @@ import {LocalStorageService} from "../../services/localStorage.service";
 })
 export class ProjectListComponent implements OnInit {
 
-
   public projects: IProject[] = [];
   public currentProjectId = 0;
   private _dataService = inject(ProjectDataService);

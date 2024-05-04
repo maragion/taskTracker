@@ -9,25 +9,4 @@
     margin-top: 10px;
   }
 
-  .priority {
-    display: inline;
-    padding: 5px;
-    border-radius: 10px;
-    max-width: max-content;
-    color: white;
-    text-transform: capitalize;
-
-    &.high {
-      background-color: #F44336;
-    }
-
-    &.medium {
-      background-color: #FF6E40;
-    }
-
-    &.low {
-      background-color: #69F0AE;
-    }
-
-  }
 }
