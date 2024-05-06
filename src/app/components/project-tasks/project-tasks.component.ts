@@ -1,13 +1,14 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {DatePipe, NgClass} from "@angular/common";
-import {IProject} from "../../interfaces/projects";
+import {IProject, ITask} from "../../interfaces/projects";
 import {ProjectDataService} from "../../services/project-data.service";
 import {Subscription} from "rxjs";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
 import {MatDialog} from "@angular/material/dialog";
-import {NewTaskComponent} from "../new-task/new-task.component";
 import {TaskPageComponent} from "../../pages/task-page/task-page.component";
+import {NewTaskComponent} from "../new-task/new-task.component";
+import {FilterAndSortComponent} from "../filter-and-sort/filter-and-sort.component";
 
 @Component({
   selector: 'app-project-tasks',
@@ -21,20 +22,27 @@ import {TaskPageComponent} from "../../pages/task-page/task-page.component";
     DatePipe,
     MatProgressSpinner,
     NewTaskComponent,
+    FilterAndSortComponent
   ],
   templateUrl: './project-tasks.component.html',
   styleUrl: './project-tasks.component.scss'
 })
-export class ProjectTasksComponent implements OnInit{
+export class ProjectTasksComponent implements OnInit, OnDestroy{
 
-  currentProject: IProject | null = null;
+  public currentProject: IProject | null = null;
+  public filteredTasks: ITask[] | null = null
   private _dataService = inject(ProjectDataService);
   public taskDialog = inject(MatDialog);
+
   private _projectSubscription: Subscription | null = null;
+  private _filteredTaskSubscription: Subscription | null = null;
 
   ngOnInit() {
-    this._projectSubscription = this._dataService.$currentProjectData.subscribe(data => {
+    this._projectSubscription = this._dataService.$currentProjectData.subscribe((data: IProject) => {
       this.currentProject = data;
+    })
+    this._filteredTaskSubscription = this._dataService.$filteredTasks.subscribe((data: ITask[]) => {
+      this.filteredTasks = data;
     })
   }
 
@@ -47,4 +55,12 @@ export class ProjectTasksComponent implements OnInit{
     this.taskDialog.open(TaskPageComponent);
   }
 
+  ngOnDestroy() {
+    if (this._projectSubscription) {
+      this._projectSubscription.unsubscribe();
+    }
+    if (this._filteredTaskSubscription) {
+      this._filteredTaskSubscription.unsubscribe();
+    }
+  }
 }

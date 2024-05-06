@@ -1,0 +1,54 @@
+<div class="filters-wrapper">
+  <div>
+    <h4>Filters</h4>
+    <div class="filters">
+      <mat-form-field>
+        <mat-label>Priority</mat-label>
+        <mat-select [(ngModel)]="priorityFilter">
+          @for (option of priorityOptions; track $index) {
+            <mat-option [value]="option.value" (click)="applyFilter()">{{ option.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="statusFilter">
+          @for (status of statusOptions; track status) {
+            <mat-option [value]="status.value" (click)="applyFilter()">{{ status.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Assignee</mat-label>
+        <mat-select [(ngModel)]="assigneeFilter">
+          @for (employee of employees; track employee) {
+            <mat-option [value]="employee" (click)="applyFilter()">{{ employee }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div>
+    <h4>Sort</h4>
+    <div class="filters">
+      <mat-form-field>
+        <mat-label>Sort By Date</mat-label>
+        <mat-select [(ngModel)]="dateSort">
+          <mat-option value="ascending" (click)="sortByDate()">Ascending</mat-option>
+          <mat-option value="descending" (click)="sortByDate()">Descending</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Sort By Assignee</mat-label>
+        <mat-select [(ngModel)]="assigneeSort">
+          <mat-option value="ascending" (click)="sortByAssignee()">Ascending</mat-option>
+          <mat-option value="descending" (click)="sortByAssignee()">Descending</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

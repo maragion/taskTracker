@@ -5,6 +5,7 @@ export interface IProject {
 }
 
 export interface ITask {
+  id: number,
   title: string;
   description: string;
   assignee: string;

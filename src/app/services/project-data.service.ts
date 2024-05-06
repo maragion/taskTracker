@@ -12,6 +12,8 @@ export class ProjectDataService {
   currentProjectId: number = 0;
   currentProject: BehaviorSubject<IProject>;
   $currentProjectData: Observable<IProject>;
+  tasks: BehaviorSubject<ITask[]>;
+  $filteredTasks: Observable<ITask[]>;
   isLoading = signal(true);
   currentTask = signal(0);
 
@@ -20,6 +22,9 @@ export class ProjectDataService {
     this.data = new BehaviorSubject(this.projects);
     this.$projectsData = this.data as Observable<IProject[]>;
     this.$currentProjectData = this.currentProject as Observable<IProject>;
+    this.tasks = new BehaviorSubject(this.projects[this.currentProjectId]?.tasks);
+    this.$filteredTasks = this.tasks as Observable<ITask[]>;
+
   }
 
   public setCurrentProject(projectId: number) {
@@ -35,6 +40,7 @@ export class ProjectDataService {
         this.projects = JSON.parse(data);
         this.data.next(this.projects);
         this.currentProject.next(this.projects[this.currentProjectId]);
+        this.tasks.next(this.projects[this.currentProjectId].tasks);
         this.isLoading.set(false);
       }, 1000);
     }
@@ -43,6 +49,7 @@ export class ProjectDataService {
   public addTask(data: ITask): void {
     this.projects[this.currentProjectId].tasks.push(data);
     this.data.next(this.projects);
+    this.currentProject.next(this.projects[this.currentProjectId]);
   }
 
   public updateTask() {
@@ -51,6 +58,14 @@ export class ProjectDataService {
 
   public setCurrentTask(id: number) {
     this.currentTask.set(id);
+  }
+
+  public setFilteredTasks(data: ITask[]) {
+    this.tasks.next(data);
+  }
+
+  public getTasksLength(): number {
+    return this.projects[this.currentProjectId].tasks.length;
   }
 
 }

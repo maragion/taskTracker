@@ -93,6 +93,7 @@ export class NewTaskDialogComponent {
   public onSubmit() {
     if (this.taskForm.valid) {
       const data: ITask = this.taskForm.getRawValue();
+      data.id = this._dataService.getTasksLength();
       data.date = new Date(data.date).getTime();
       this._dataService.addTask(data);
       this.taskForm.reset();
