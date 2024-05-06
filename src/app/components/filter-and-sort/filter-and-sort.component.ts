@@ -45,7 +45,6 @@ export class FilterAndSortComponent implements OnInit, OnDestroy{
   ngOnInit() {
     this._projectSubscription = this._dataService.$currentProjectData.subscribe((data: IProject) => {
       this.currentTaskList = data.tasks;
-      console.log(this.currentTaskList);
       this.applyFilter();
     })
   }

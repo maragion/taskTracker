@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {IProject} from "../../interfaces/projects";
 import {ProjectDataService} from "../../services/project-data.service";
@@ -20,7 +20,7 @@ import {LocalStorageService} from "../../services/localStorage.service";
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.scss'
 })
-export class ProjectListComponent implements OnInit {
+export class ProjectListComponent implements OnInit, OnDestroy {
 
   public projects: IProject[] = [];
   public currentProjectId = 0;
@@ -38,6 +38,12 @@ export class ProjectListComponent implements OnInit {
   public setCurrentProjectId(projectId: number) {
     this.currentProjectId = projectId;
     this._dataService.setCurrentProject(projectId)
+  }
+
+  ngOnDestroy() {
+    if (this._dataSubscription) {
+      this._dataSubscription.unsubscribe();
+    }
   }
 
 }
