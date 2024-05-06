@@ -83,9 +83,9 @@ export class NewTaskDialogComponent {
 
   public taskForm: FormGroup = this._fb.group({
     title: ['', Validators.required],
-    date: [''],
+    date: ['', Validators.required],
     priority: ['low'],
-    assignee: [''],
+    assignee: ['', Validators.required],
     status: ['todo'],
     description: ['', Validators.required],
   })
